@@ -3,7 +3,7 @@ import { demoList } from '../../data/demoList';
 
 export default function handler(req, res) {
 	if (req.method === 'GET') {
-		for (let i = 1; i <= 50000; i++) {
+		for (let i = 1; i <= 20000; i++) {
 			demoList.push({
 				listener: `Listener ${i}`,
 				playlist: `PlayList ${i}`,
