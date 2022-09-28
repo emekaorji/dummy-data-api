@@ -1,6 +1,15 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import list from '../../data/list.json';
+import { demoList } from '../../data/demoList';
 
 export default function handler(req, res) {
-	res.status(200).json(list);
+	if (req.method === 'GET') {
+		for (let i = 1; i <= 100000; i++) {
+			demoList.push({
+				listener: `Listener ${i}`,
+				playlist: `PlayList ${i}`,
+				favourite: `Favourite ${i}`,
+			});
+		}
+		res.status(200).json(demoList);
+	}
 }
