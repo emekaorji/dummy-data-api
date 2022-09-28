@@ -2,8 +2,10 @@
 import { demoList } from '../../data/demoList';
 
 export default function handler(req, res) {
+	const { amount = 500 } = req.query;
 	if (req.method === 'GET') {
-		for (let i = 1; i <= 20000; i++) {
+		demoList.length = 0;
+		for (let i = 1; i <= parseInt(amount); i++) {
 			demoList.push({
 				listener: `Listener ${i}`,
 				playlist: `PlayList ${i}`,
